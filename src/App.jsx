@@ -14,6 +14,14 @@ function App() {
   const [condition, setCondition] = useState("");
   const [temperature, setTemperature] = useState("");
 
+  function handleAddActivity(data) {
+    setActivities([...activities, { id: uid(), ...data }]);
+  }
+
+  function handleDeleteActivity(id) {
+    setActivities(activities.filter((activity) => activity.id !== id));
+  }
+
   useEffect(() => {
     async function loadWeather() {
       try {
@@ -40,16 +48,16 @@ function App() {
     (activity) => activity.isForGoodWeather === weather
   );
 
-  function handleAddActivity(data) {
-    setActivities([...activities, { id: uid(), ...data }]);
-  }
-
   return (
     <>
       <h1>
         {condition} {temperature}°C
       </h1>
-      <List activities={filteredActivities} weather={weather} />
+      <List
+        weather={weather}
+        activities={filteredActivities}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
