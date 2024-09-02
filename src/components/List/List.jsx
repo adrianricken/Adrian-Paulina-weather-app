@@ -1,8 +1,8 @@
-export default function List({ activities, isGoodWeather }) {
+export default function List({ weather, activities }) {
   return (
     <>
       <h2>
-        {isGoodWeather
+        {weather
           ? "The weather is awesome! Go outside and:"
           : "Bad weather outside! Here's what you can do now:"}
       </h2>
