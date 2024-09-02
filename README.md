@@ -4,11 +4,6 @@ Being able to create new data is a good starting point for an app, so the first 
 
 // Clean the app from everything which you don't need for a fresh start.
 
-    Write a Form component which
-        - contains a heading
-        - has two input fields (name of activity, checkbox whether it is a - good- or bad-weather activity) with appropriate labels and a submit button;
-        - it receives a prop called onAddActivity.
-
     Handle the submit event:
 
         Extract the submitted data as an object with the keys name and isForGoodWeather and their respective values.
