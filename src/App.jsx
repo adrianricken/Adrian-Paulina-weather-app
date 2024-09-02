@@ -1,18 +1,19 @@
-import { useState } from "react";
 import "./App.css";
-import Form from "./components/Form";
+import { useState } from "react";
 import { uid } from "uid";
+import Form from "./components/Form/Form";
+import List from "./components/List/List";
 
-function App() {
+export default function App() {
   const [activities, setActivities] = useState([]);
 
-  function handleAddActivity(newActivity) {
+  function handleAddActivity(data) {
     setActivities([
       ...activities,
       {
         id: uid(),
-        name: newActivity.name,
-        isForGoodWeather: newActivity.isForGoodWeather,
+        name: data.name,
+        isForGoodWeather: data.isForGoodWeather,
       },
     ]);
   }
@@ -20,9 +21,8 @@ function App() {
 
   return (
     <>
+      <List activities={activities} />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
 }
-
-export default App;
