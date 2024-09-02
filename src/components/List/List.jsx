@@ -1,9 +1,11 @@
-export default function List({ activities }) {
-  // if (!Array.isArray(activities)) {
-  //   return null; // or handle the case when activities is not an array
-  // }
+export default function List({ activities, isGoodWeather }) {
   return (
     <>
+      <h2>
+        {isGoodWeather
+          ? "The weather is awesome! Go outside and:"
+          : "Bad weather outside! Here's what you can do now:"}
+      </h2>
       <ul className="activities-list">
         {activities.map((activity) => (
           <li key={activity.id} className="activity-list__item">

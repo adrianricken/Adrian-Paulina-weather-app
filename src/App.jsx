@@ -6,19 +6,23 @@ import Form from "./components/Form/Form";
 import List from "./components/List/List";
 
 function App() {
+  const isGoodWeather = true;
+
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
+
+  const filteredActivities = activities.filter(
+    (activity) => activity.isForGoodWeather === isGoodWeather
+  );
 
   function handleAddActivity(data) {
     setActivities([...activities, { id: uid(), ...data }]);
   }
 
-  console.log(activities);
-
   return (
     <>
-      <List activities={activities} />
+      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
       <Form onAddActivity={handleAddActivity} />
     </>
   );
