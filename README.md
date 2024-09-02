@@ -2,22 +2,12 @@
 
 Being able to create new data is a good starting point for an app, so the first step is to create a form component to add a new activity.
 
-// Clean the app from everything which you don't need for a fresh start.
+List Component
+By now, you can add new activities, but they are not yet displayed. Let's fix this.
 
-    Handle the submit event:
+Write a List component which renders a list with list items for each activity in the activities state.
 
-        Extract the submitted data as an object with the keys name and isForGoodWeather and their respective values.
-            Hint: To get the boolean value of a checkbox, use .checked.
+- Make the state persistent in local storage.
+- Use this wireframe as a reference:
 
-        Call onAddActivity and pass it the data object as argument.
-
-    After submitting, reset the form and focus the first input field.
-
-    Switch to the App.js and
-        create a state for activities,
-        write a function handleAddActivity which accepts a new activity object as parameter and adds this object to the activities state
-        please add a unique id to every new activity object; you can use uid to do so.
-
-    Pass handleAddActivity to the Form component; make sure to use the correct prop name.
-
-Use this wireframe as a reference:
+list and form component wireframe
