@@ -1,22 +1,19 @@
 import "./App.css";
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
+import { useState, useEffect } from "react";
 import { uid } from "uid";
 import Form from "./components/Form/Form";
 import List from "./components/List/List";
 
-export default function App() {
-  const [activities, setActivities] = useState([]);
+function App() {
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  });
 
   function handleAddActivity(data) {
-    setActivities([
-      ...activities,
-      {
-        id: uid(),
-        name: data.name,
-        isForGoodWeather: data.isForGoodWeather,
-      },
-    ]);
+    setActivities([...activities, { id: uid(), ...data }]);
   }
+
   console.log(activities);
 
   return (
@@ -26,3 +23,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;

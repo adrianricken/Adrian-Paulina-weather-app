@@ -1,6 +1,7 @@
 export default function List({ activities }) {
-  console.log(activities);
-
+  // if (!Array.isArray(activities)) {
+  //   return null; // or handle the case when activities is not an array
+  // }
   return (
     <>
       <ul className="activities-list">
