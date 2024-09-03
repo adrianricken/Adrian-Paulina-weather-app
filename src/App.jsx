@@ -40,7 +40,10 @@ function App() {
     }
   }
 
-  // useEffect for calling the function, not to declare it (above)
+  // why 'useEffect'
+  // - for calling the function - without it the function 'loadWeather' would be called every time the page is re-rendered
+  // - asynchronous data
+
   useEffect(() => {
     loadWeather();
     const intervalID = setInterval(loadWeather, 5000);

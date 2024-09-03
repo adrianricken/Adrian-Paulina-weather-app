@@ -28,7 +28,7 @@ export default function Form({ onAddActivity }) {
 
       <div>
         <label htmlFor="name">Activity Name:</label>
-        <input type="text" name="name" id="name" required />
+        <input type="text" name="name" id="name" required maxLength={100} />
       </div>
 
       <div>
