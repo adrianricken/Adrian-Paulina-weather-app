@@ -1,0 +1,79 @@
+.container_list {
+  display: flex;
+  /* position: relative; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  align-content: flex-start;
+}
+
+.heading {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.55em;
+}
+
+.activities-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  padding: 5px;
+  justify-items: center;
+}
+
+@media (min-width: 600px) {
+  .activities-list {
+    grid-template-columns: repeat(2, 1fr); /* larger screen = 2 columns */
+  }
+}
+
+@media (min-width: 900px) {
+  .activities-list {
+    grid-template-columns: repeat(3, 1fr); /* larger screen = 3 columns */
+  }
+}
+
+.activity-list-item {
+  list-style: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.activity-name {
+  background-color: rgba(105, 95, 95, 0.5);
+  color: white;
+  border-radius: 12px;
+  text-align: left;
+  width: 15em;
+  height: 100%;
+  padding: 10px 20px 10px 15px;
+  word-wrap: break-word;
+  display: block;
+  margin: 0;
+  font-size: 1em;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.activity-button {
+  background-color: rgba(105, 95, 95, 0.5);
+  display: flex;
+  position: absolute;
+  right: -9px;
+  height: 15px;
+  width: 15px;
+  top: 0;
+  transform: translateY(-50%);
+  border: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 0.8em;
+}
