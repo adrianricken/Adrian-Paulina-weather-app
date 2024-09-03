@@ -22,32 +22,36 @@ function App() {
     setActivities(activities.filter((activity) => activity.id !== id));
   }
 
-  useEffect(() => {
-    async function loadWeather() {
-      try {
-        const response = await fetch(
-          "https://example-apis.vercel.app/api/weather"
-        );
-        const data = await response.json();
-        if (!response.ok) {
-          console.log("Bad response");
-        } else {
-          setWeather(data.isGoodWeather);
-          setCondition(data.condition);
-          setTemperature(data.temperature);
-        }
-        console.log(data);
-      } catch (error) {
-        console.log(error);
+  async function loadWeather() {
+    try {
+      const response = await fetch(
+        "https://example-apis.vercel.app/api/weather"
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        console.log("Bad response");
+      } else {
+        setWeather(data.isGoodWeather);
+        setCondition(data.condition);
+        setTemperature(data.temperature);
       }
+    } catch (error) {
+      console.log(error);
     }
+  }
+
+  // useEffect for calling the function, not to declare it (above)
+  useEffect(() => {
     loadWeather();
+    const intervalID = setInterval(loadWeather, 5000);
+    return () => clearInterval(intervalID);
   }, []);
 
   const filteredActivities = activities.filter(
     (activity) => activity.isForGoodWeather === weather
   );
 
+  // returning JSX elements
   return (
     <>
       <h1>
